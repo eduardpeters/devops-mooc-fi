@@ -1,0 +1,15 @@
+BEFORE
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+57476ca1f0b3   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) 2 minutes ago             crazy_cohen
+d9e3990640f9   nginx     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes               80/tcp    bold_wozniak
+0e4ac16ee60b   nginx     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes               80/tcp    silly_greider
+
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+nginx        latest    1d668e06f1e5   3 days ago     188MB
+postgres     latest    d60dc4bd84c0   2 months ago   431MB
+
+AFTER
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+postgres     latest    d60dc4bd84c0   2 months ago   431MB
