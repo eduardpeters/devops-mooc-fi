@@ -67,3 +67,22 @@ When a command runs, the client sends a request through the REST API to the Dock
 - `docker container rm <container>` / `docker rm`
 - `docker container stop <container>` / `docker stop`
 - `docker container exec <container>`/ `docker exec`
+
+### Useful flags for `run`
+
+- `-i` interactive
+- `-t` tty
+- `-it` both of the above
+- `-d` detached
+- `--name` to specify a name
+- `--rm` remove container after exit
+
+Output logs from container with: `docker logs -f <container>`
+
+Pausing and unpausing containers: `docker pause <container>` / `docker unpause <container>`
+
+Attach to a running container:
+`docker attach <container>`
+Pass the `--no-stdin` flag to not pass your STDIN to the container.
+
+Execute commands inside a container with: `docker exec <container> <command>`

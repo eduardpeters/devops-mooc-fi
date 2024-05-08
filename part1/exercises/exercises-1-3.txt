@@ -1,0 +1,8 @@
+Run container
+docker run -d -it --rm --name ex13 devopsdockeruh/simple-web-service:ubuntu
+Enter container interactively
+docker exec -it ex13 bash
+Read secret message
+tail -f ./text.log
+
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
