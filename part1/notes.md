@@ -93,3 +93,13 @@ Docker searches for images in Docker Hub if it is not found locally.
 Search Docker Hub with: `docker search <term>`
 
 Official images have no prefix. They are curated and reviewed by Docker.
+
+# Dockerfile
+
+File that contains the instructions to build an image.
+
+`docker build . -t <name>`
+
+Builds are carried out in steps: representing the layers of the image. Each step is a layer on top of the base image. This means they can work as a cache on future builds.
+
+Almost all instructions inside a Dockerfile are executed at build time. Exceptions are: `CMD` and `ENTRYPOINT`. `CMD` can be overriden when running the image.
