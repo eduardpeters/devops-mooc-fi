@@ -86,3 +86,10 @@ Attach to a running container:
 Pass the `--no-stdin` flag to not pass your STDIN to the container.
 
 Execute commands inside a container with: `docker exec <container> <command>`
+
+# Images deep dive
+
+Docker searches for images in Docker Hub if it is not found locally.
+Search Docker Hub with: `docker search <term>`
+
+Official images have no prefix. They are curated and reviewed by Docker.
