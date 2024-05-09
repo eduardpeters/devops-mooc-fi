@@ -103,3 +103,19 @@ File that contains the instructions to build an image.
 Builds are carried out in steps: representing the layers of the image. Each step is a layer on top of the base image. This means they can work as a cache on future builds.
 
 Almost all instructions inside a Dockerfile are executed at build time. Exceptions are: `CMD` and `ENTRYPOINT`. `CMD` can be overriden when running the image.
+
+`ENTRYPOINT` defines the main executable. Arguments passed to the `run` command are then arguments to this executable. If a Dockerfile specifies a `CMD` besides the `ENTRYPOINT` then this becomes the default arguments to the executable. Passing arguments after the `run` command overrides the `CMD` instruction from the Dockerfile.
+
+There are two ways to set `CMD` and `ENTRYPOINT`: `exec` and `shell` form. In `shell` form the command string is wrapped with `/bin/sh -c` (useful for evaluating environment variables such as `$DB_PASSWORD`).
+
+- `exec`: `["/bin/ping","-c","3"]`
+- `shell`: `/bin/ping -c 3`
+
+### Resulting command examples:
+
+| Dockerfile                                            | Resulting command                                  |
+| ----------------------------------------------------- | -------------------------------------------------- |
+| `ENTRYPOINT /bin/ping -c 3 CMD localhost`             | `/bin/sh -c '/bin/ping -c 3' /bin/sh -c localhost` |
+| `ENTRYPOINT ["/bin/ping","-c","3"] CMD localhost`     | `/bin/ping -c 3 /bin/sh -c localhost`              |
+| `ENTRYPOINT /bin/ping -c 3 CMD ["localhost"]`         | `/bin/sh -c '/bin/ping -c 3' localhost`            |
+| `ENTRYPOINT ["/bin/ping","-c","3"] CMD ["localhost"]` | `/bin/ping -c 3 localhost`                         |

@@ -12,5 +12,4 @@ RUN chmod +x script.sh
 RUN apt-get update
 RUN apt-get -y install curl
 
-# When running docker run the command will be ./hello.sh
-CMD ./script.sh
+ENTRYPOINT ["./script.sh"]
