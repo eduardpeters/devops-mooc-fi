@@ -119,3 +119,16 @@ There are two ways to set `CMD` and `ENTRYPOINT`: `exec` and `shell` form. In `s
 | `ENTRYPOINT ["/bin/ping","-c","3"] CMD localhost`     | `/bin/ping -c 3 /bin/sh -c localhost`              |
 | `ENTRYPOINT /bin/ping -c 3 CMD ["localhost"]`         | `/bin/sh -c '/bin/ping -c 3' localhost`            |
 | `ENTRYPOINT ["/bin/ping","-c","3"] CMD ["localhost"]` | `/bin/ping -c 3 localhost`                         |
+
+## Volumes
+
+The command with the `-v` flag followed by an absolute path from the host machine: `docker run -v "$(pwd):/mydir"` would map the current working directory to the mydir directory inside the container. A volume is a directory or file shared between host and container. Changes made inside the container are reflected outside and the other way around.
+
+## Ports
+
+It is possible to map your host machine port to a container port. Opening a port connection takes place in two steps: exposing the port and publishing the port. Exposing a port instructs Docker that the container listens to this port. Publishing a port maps host ports to container ports.
+
+To expose a port, add the line `EXPOSE <port>` in your Dockerfile
+To publish a port, run the container with `-p <host-port>:<container-port>`
+
+Limit connections to a protocol by adding it to the instructions: `EXPOSE <port>/udp` and `-p <host-port>:<container-port>/udp`
