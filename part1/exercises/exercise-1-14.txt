@@ -1,0 +1,7 @@
+FRONTEND
+docker run -p 4999:5000 ex12
+
+BACKEND
+docker run -p 8079:8080 ex13
+
+Updated Dockerfiles directly in exercises 1-12 and 1-13
