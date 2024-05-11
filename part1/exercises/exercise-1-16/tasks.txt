@@ -1,0 +1,12 @@
+Available on:
+https://sneaky-tester.fly.dev/
+
+I chose fly.io to deploy a simple Vite React test app.
+I researched how to build the Dockerfile for a Vite app and tested it locally.
+
+I then followed the fly.io documentation to deploy a Docker container.
+I installed their CLI and it identifies Dockerfiles to speed up deployment.
+I followed the instructions, but made sure to customize the resources to make them fit the free tier (downgraded from 1GB to 256MB RAM).
+
+I had to edit the configuration after deploying as it set up port 80, while I had port 8080 in the EXPOSE instrucion.
+After fixing this, the app was available.
