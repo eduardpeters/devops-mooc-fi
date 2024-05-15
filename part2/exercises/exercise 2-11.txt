@@ -1,0 +1,2 @@
+For the Test-Driven development course I built a TDD Full Stack App and set it up from the start with container orchestration.
+It included three services: a React frontend, an Express backend and a PostgreSQL database, complete with an initialization script mounted.
