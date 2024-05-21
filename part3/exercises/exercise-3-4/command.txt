@@ -1,0 +1,1 @@
+docker run -e DOCKER_USER=abc -e DOCKER_PWD=xyz -v /var/run/docker.sock:/var/run/docker.sock builder github/repo dockerhub/repo
