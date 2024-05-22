@@ -8,7 +8,7 @@ Defined by the mantainers of **Docker Official Images**. Some are mantained insi
 
 ## Using non-root users
 
-Running containers as root is not a great idea, since the application could escape the container due to bugs in the application, Docker or the Linux Kernel. The container's root user is the host;s root account. As such, it is recommended to change the user running the container processes.
+Running containers as root is not a great idea, since the application could escape the container due to bugs in the application, Docker or the Linux Kernel. The container's root user is the host's root account. As such, it is recommended to change the user running the container processes.
 
 For example, in Ubuntu based images:
 

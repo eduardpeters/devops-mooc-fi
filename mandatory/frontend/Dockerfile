@@ -1,7 +1,5 @@
 FROM node:16
 
-RUN npm install -g serve
-
 EXPOSE 5000
 
 # Passing env variable no longer needed with reverse proxy
@@ -12,13 +10,11 @@ WORKDIR /usr/src/app
 
 COPY package* .
 
-RUN npm install
+RUN npm install -g serve && npm install
 
 COPY . .
 
-RUN npm run build
-
-RUN useradd -m appuser
+RUN npm run build && useradd -m appuser
 
 USER appuser
 

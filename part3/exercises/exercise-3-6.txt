@@ -1,0 +1,9 @@
+Starting sizes:
+Backend: 1.26 GB
+Frontend: 1.25 GB
+
+Joining RUN commands:
+Backend: 1.26 GB (no visible change)
+Frontend: 1.25 GB (no visible change)
+
+No temporary packages were added that could be safely removed for running.
