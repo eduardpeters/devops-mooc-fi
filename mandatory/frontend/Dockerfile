@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16-alpine
 
 EXPOSE 5000
 
@@ -14,7 +14,7 @@ RUN npm install -g serve && npm install
 
 COPY . .
 
-RUN npm run build && useradd -m appuser
+RUN npm run build && adduser -D appuser
 
 USER appuser
 

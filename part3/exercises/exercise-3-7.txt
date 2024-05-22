@@ -1,0 +1,7 @@
+Starting sizes:
+Backend: 1.26 GB
+Frontend: 1.25 GB
+
+With Alpine base:
+Backend: 645 MB
+Frontend: 459 MB

@@ -28,3 +28,19 @@ These instructions will add the _appuser_ user and the Docker instrucion `USER` 
 
 If the new user needs permissions to write inside the container, the permission change can be performed before switching to the new user (as _root_):
 `RUN chown appuser .`
+
+## Optimizing image size
+
+Small image size advantages:
+
+- Less resources
+- Less time to pull
+- Reduced attack surface area
+
+Approaches:
+
+- Small base images
+- Builder pattern
+- Reducing layers
+
+Each command executed in a Dockerfile is a layer. These are cached and rebuilding only re-runs those that have changed.
