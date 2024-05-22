@@ -1,0 +1,5 @@
+Single stage:
+Backend: 645 MB
+
+Multi stage:
+Backend: 18 MB
