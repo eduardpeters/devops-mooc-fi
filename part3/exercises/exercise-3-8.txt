@@ -1,0 +1,5 @@
+Single stage:
+Frontend: 459 MB
+
+Multi stage:
+Frontend: 129 MB

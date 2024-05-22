@@ -1,21 +1,25 @@
-FROM node:16-alpine
-
-EXPOSE 5000
-
-# Passing env variable no longer needed with reverse proxy
-#ARG REACT_APP_BACKEND_URL
-#ENV REACT_APP_BACKEND_URL ${REACT_APP_BACKEND_URL}
+FROM node:16-alpine as build-stage
 
 WORKDIR /usr/src/app
 
 COPY package* .
 
-RUN npm install -g serve && npm install
+RUN npm install
 
 COPY . .
 
 RUN npm run build && adduser -D appuser
 
+FROM node:16-alpine
+
+WORKDIR /usr/src/app
+
+COPY --from=build-stage /usr/src/app/build .
+
+RUN npm install -g serve && adduser -D appuser
+
+EXPOSE 5000
+
 USER appuser
 
-CMD serve -s -l 5000 build
+CMD serve -s -l 5000

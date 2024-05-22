@@ -39,8 +39,25 @@ Small image size advantages:
 
 Approaches:
 
-- Small base images
-- Builder pattern
-- Reducing layers
+- Small base images (Alpine for example)
+- Builder pattern (Separating build tools from final image)
+- Reducing layers (Combining commands)
 
 Each command executed in a Dockerfile is a layer. These are cached and rebuilding only re-runs those that have changed.
+
+**Builder pattern**: Perform image build in stages, carrying only the result of a previous stage to the next.
+
+```
+# the  first stage needs to be given a name
+FROM ruby:3 as build-stage
+WORKDIR /usr/app
+
+RUN gem install jekyll
+RUN jekyll new .
+RUN jekyll build
+
+# we will now add a new stage
+FROM nginx:1.19-alpine
+
+COPY --from=build-stage /usr/app/_site/ /usr/share/nginx/html
+```
