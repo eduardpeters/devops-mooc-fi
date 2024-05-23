@@ -61,3 +61,9 @@ FROM nginx:1.19-alpine
 
 COPY --from=build-stage /usr/app/_site/ /usr/share/nginx/html
 ```
+
+## Multi-host environments
+
+**Docker swarm mode** turns a pool of hosts into a single virtual host. The lightest way to utilize multiple hosts.
+
+**Kubernetes** _de facto_ way to orchestrate containers in large multi-host environments.
